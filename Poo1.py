@@ -18,7 +18,7 @@ nombres=[]
 fechas=[]
 fechasd=[]
 atraso=[]
-
+print('Bienvenido a la interfaz de la Biblioteca P.O.O. Debido a convenios con ciertas editoriales nuestra biblioteca trabaja solo con los autores del catalogo. \n Recuerde tambien que el uso de mayusculas para modos de trabajo es obligatorio \n Muchas Gracias')  
 
 while True:
   print()
@@ -127,14 +127,60 @@ while True:
   
   if main==4:
     main4=int(input('Que deseas hacer: \n 1. Añadir Libro \n 2. Quitar Libro \n'))
+
+    if main4==1:
+        aut=input('Ingrese nombre del autor: ')
+        libro=input('Ingrese nombre del libro: ')
+        gen=input('Ingrese el genero del libro (Ficcion, Romance, Aventura): ')
+        if gen !='Ficcion' and gen!='Romance' and gen!= 'Aventura':
+            print('El genero que ha elegido no se encuentra entre las opciones')
+        else:
+            
+            if gen=='Ficcion':
+                for i in biblioteca[0]:
+                    if i==aut:
+                        biblioteca[0][aut].append(libro)
+                    
+            elif gen=='Romance':
+                for i in biblioteca[1]:
+                    if i==aut:
+                        biblioteca[1][aut].append(libro)
+                    
+            elif gen=='Aventura':
+                for i in biblioteca[2]:
+                    if i==aut:
+                        biblioteca[2][aut].append(libro)
+            else:
+                print('El autor que ha ingresado no pertenece al genero elegido')
+        '''
+        for i in biblioteca:
+            for j in i:
+                if aut i:
+                    i[aut].append(libro)
+                else:
+                    gen=input('Ingrese genero del libro: ')
+                    for i in biblioteca:
+                        if i==gen:
+                            dic={aut: libro}
+                            print(dic)
+                            i.update(dic)
+        '''
+
+
     if main4==2:
       libro=input('Escriba el nombre del libro que deseas quitar del catalogo: ')
       for i in biblioteca:
         for j in i:
-          for k in range(len(i)):
-            if libro==i[j][k]:
-              i[j].pop(k)
+          if libro in i[j]:
+              i[j].pop(i[j].index(libro))
+              
 
 
   if main==5:
     break
+
+
+
+
+
+
